@@ -1,10 +1,20 @@
 <?php
 $page_title = "SMK Metland Cileungsi - The High Standard in Vocational Education";
 $current_page = "beranda";
-include 'includes/config.php';
-include 'includes/header.php';
+include 'config.php';
+include 'header.php';
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="hero-carousel">
@@ -628,4 +638,7 @@ include 'includes/header.php';
     </div>
 </section>
 
-<?php include 'includes/footer.php'; ?>
+</body>
+</html>
+
+<?php include 'footer.php'; ?>
