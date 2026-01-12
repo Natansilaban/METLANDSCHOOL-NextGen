@@ -20,7 +20,7 @@
     <link rel="icon" type="image/x-icon" href="<?php echo htmlspecialchars(get_asset_path('assets/images/favicon.ico'), ENT_QUOTES, 'UTF-8'); ?>?v=<?php echo rawurlencode(ASSETS_VERSION); ?>">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="<?php echo htmlspecialchars(get_asset_path('assets/css/style.css'), ENT_QUOTES, 'UTF-8'); ?>?v=<?php echo rawurlencode(ASSETS_VERSION); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars(get_asset_path('style.css'), ENT_QUOTES, 'UTF-8'); ?>?v=<?php echo rawurlencode(ASSETS_VERSION); ?>">
     
     <!-- Font Awesome (using CDN for icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,9 +32,10 @@
     
     <!-- Navigation -->
     <header class="site-header animate-header">
-    <nav class="navbar navbar-main" role="navigation" aria-label="Main navigation">
+    <!-- Top Bar with Logo and PPDB -->
+    <div class="navbar-top">
         <div class="container">
-            <div class="navbar-wrapper">
+            <div class="navbar-top-wrapper">
                 <?php $base_path = htmlspecialchars(get_base_path(), ENT_QUOTES, 'UTF-8'); ?>
                 <a href="<?php echo $base_path; ?>index.php" class="navbar-brand animate-brand" aria-label="<?php echo htmlspecialchars(SITE_NAME, ENT_QUOTES, 'UTF-8'); ?> Home">
                     <div class="logo-container">
@@ -46,7 +47,17 @@
                         <p class="brand-subtitle">Cileungsi</p>
                     </div>
                 </a>
+                <a href="<?php echo $base_path; ?>pages/ppdb.php" class="ppdb-link animate-cta">
+                    <span class="ppdb-text">PPDB</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bottom Bar with Menu -->
+    <nav class="navbar navbar-main" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="navbar-wrapper">
                 <button class="navbar-toggler animate-toggler" type="button" id="mobile-menu-toggle" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <div class="toggler-icon">
                         <span class="toggler-line"></span>
@@ -138,12 +149,6 @@
                             <a href="<?php echo $base_path; ?>pages/bkk.php" class="nav-link animate-link">
                                 <span class="link-text">BKK</span>
                                 <span class="link-underline"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item animate-nav-item cta-item">
-                            <a href="<?php echo $base_path; ?>pages/ppdb.php" class="nav-link btn-nav-cta animate-cta">
-                                <span class="cta-text">PPDB</span>
-                                <span class="cta-glow"></span>
                             </a>
                         </li>
                     </ul>

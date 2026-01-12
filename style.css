@@ -276,7 +276,54 @@ body::before {
     box-shadow: 0 4px 8px rgba(8, 145, 178, 0.3);
 }
 
-/* Navigation */
+/* Navigation - Top Bar (Logo and PPDB) */
+.navbar-top {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(8, 145, 178, 0.1);
+}
+
+.navbar-top-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.navbar-brand .logo-img {
+    height: 50px;
+    width: auto;
+}
+
+.ppdb-link {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: var(--bg-white) !important;
+    padding: 10px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+    display: inline-block;
+}
+
+.ppdb-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(8, 145, 178, 0.4);
+}
+
+/* Navigation - Bottom Bar (Menu) */
 .navbar-main {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
@@ -292,19 +339,9 @@ body::before {
 .navbar-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 12px 0;
-}
-
-.navbar-brand .logo-img {
-    height: 48px;
-    width: auto;
-}
-
-.btn-nav-cta {
-    margin-left: 8px;
-    padding: 8px 18px;
-    border-radius: 999px;
+    position: relative;
 }
 
 /* Toggler improvements and animation */
@@ -335,6 +372,27 @@ body::before {
 
 /* Mobile dropdowns become stacked and visible for easier touch */
 @media (max-width: 768px) {
+    .navbar-top-wrapper {
+        gap: var(--spacing-md);
+    }
+
+    .navbar-brand .logo-img {
+        height: 40px;
+    }
+
+    .brand-text h3 {
+        font-size: 16px;
+    }
+
+    .brand-text p {
+        font-size: 9px;
+    }
+
+    .ppdb-link {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
     .navbar-menu {
         position: absolute;
         top: 100%;
@@ -426,7 +484,7 @@ body::before {
 .navbar-menu {
     display: flex;
     flex: 1;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .navbar-nav {
@@ -436,11 +494,24 @@ body::before {
     gap: 4px;
     margin: 0;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-item {
     position: relative;
 }
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 15px;
+    position: relative;
+    transition: var(--transition);
+    display: inline-block;
+}
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -556,6 +627,8 @@ body::before {
     border: none;
     cursor: pointer;
     padding: 5px;
+    position: absolute;
+    left: 0;
 }
 
 @media (max-width: 768px) {
