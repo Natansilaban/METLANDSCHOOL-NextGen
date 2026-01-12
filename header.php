@@ -160,6 +160,37 @@
 
     <script>
         (function(){
+            // Scroll detection for hiding header
+            var header = document.querySelector('.site-header');
+            var lastScrollTop = 0;
+            var isMenuOpen = false;
+
+            window.addEventListener('scroll', function() {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Check if menu is open
+                var menu = document.getElementById('navbar-menu');
+                isMenuOpen = menu && (menu.classList.contains('open') || menu.classList.contains('active'));
+                
+                // Don't hide header if menu is open
+                if (isMenuOpen) {
+                    header.classList.remove('header-hidden');
+                    return;
+                }
+
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling DOWN - hide header
+                    if (scrollTop > 100) {
+                        header.classList.add('header-hidden');
+                    }
+                } else {
+                    // Scrolling UP - show header
+                    header.classList.remove('header-hidden');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, false);
+
             var btn = document.getElementById('mobile-menu-toggle');
             var menu = document.getElementById('navbar-menu');
             if(!btn || !menu) return;
