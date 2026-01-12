@@ -160,8 +160,8 @@
 
     <script>
         (function(){
-            // Scroll detection for hiding header
-            var header = document.querySelector('.site-header');
+            // Scroll detection for smooth header animation
+            var siteHeader = document.querySelector('.site-header');
             var lastScrollTop = 0;
             var isMenuOpen = false;
 
@@ -174,18 +174,18 @@
                 
                 // Don't hide header if menu is open
                 if (isMenuOpen) {
-                    header.classList.remove('header-hidden');
+                    siteHeader.style.transform = 'translateY(0)';
                     return;
                 }
 
                 if (scrollTop > lastScrollTop) {
-                    // Scrolling DOWN - hide header
+                    // Scrolling DOWN - slide up header partially (hide navbar-top, show navbar-main)
                     if (scrollTop > 100) {
-                        header.classList.add('header-hidden');
+                        siteHeader.style.transform = 'translateY(-60px)';
                     }
                 } else {
-                    // Scrolling UP - show header
-                    header.classList.remove('header-hidden');
+                    // Scrolling UP - show full header
+                    siteHeader.style.transform = 'translateY(0)';
                 }
                 
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
